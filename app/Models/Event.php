@@ -19,4 +19,13 @@ class Event extends Model
         'location',
         'price',
     ];
+
+    /**
+     * Eventga tegishli ticketlarni olish.
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class, 'event_id', 'event_id');
+    }
 }
+

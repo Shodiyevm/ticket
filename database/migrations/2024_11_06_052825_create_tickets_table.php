@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->string('image_path', 255)->nullable()->after('ticket_kid_quantity');
+            $table->string('image_path', 255)->nullable();
             $table->string('event_id', 10);
             $table->dateTime('event_date');
             $table->integer('ticket_adult_price');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->integer('equal_price');
             $table->string('event_name', 100);
             $table->enum('ticket_status', ['available', 'sold', 'reserved'])->default('available');
-            $table->string('seat_number', 10)->nullable();
             $table->float('discount', 8, 2)->default(0);
+        
             $table->timestamps();
         });
     }
